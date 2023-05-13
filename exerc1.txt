@@ -1,0 +1,25 @@
+S - No meu controller de funcionário, esse príncipio está correto. Minha classe funcinonou apenas para funcionário e todos seus métodos sobre ele.
+
+S - No meu controller de estoque e movimento esse príncipio foi quebrado. No cadastro de movimento, era necessário possuir o código do funcionário responsável. E para o estoque, era necessário o código do produto disponível no estoque. E com isso, a classe não possuiu uma função só.
+
+a parte do código:
+
+///
+
+public ResponseEntity cadastrar(@RequestBody EstoqueMovimento movimento,
+                                    @RequestParam Integer codigoProduto,
+                                    @RequestParam Integer codigoFuncionario) {
+
+        Produto produto = produtoService.consultar(codigoProduto);
+        movimento.setProduto(produto);
+
+        Funcionario funcionario = funcionarioService.pesquisar(codigoFuncionario);
+        movimento.setFuncionario(funcionario);
+
+///
+
+L - Não foi quebrado, todos os repositórios que meu projeto possui, distribui os métodos de forma correta. 
+
+I - Nesta parte, meu custom é uma interface que possui um método, e quando é implementado ele possui seu método usado pela classe que está sendo implementada.
+
+D - não possui este príncipio no meu código, nenhuma classe concreta foi extendida por outra concreta, e nem mesmo por uma abstrata. 
